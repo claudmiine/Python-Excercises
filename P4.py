@@ -32,11 +32,27 @@ total = n1 + n2 + n3 + n4
 
 print("The value is", total)
 """
-#1110012 = 1⋅25+1⋅24+1⋅23+0⋅22+0⋅21+1⋅20 = 5710
-new_binary_num = list(input('Enter the whole binary number: '))
-decimal_num = []
+def convert_binary_to_decimal():
 
-for x in new_binary_num:
-    
-    decimal_num.append(x)
-    print(x)
+    new_binary_num = list(input('Enter the whole binary number: '))
+    decimal_num = []
+
+    for x in new_binary_num:
+        decimal_num.append(x)
+
+    decimal_num = decimal_num[::-1] #reverse the list 
+    # The reversed list is needed for the for loop.
+    # The first element is multiply by power to 2 "2" and added 
+    decimal = 0 #declare the decimal number
+    power = 0   #declare power variable
+    for number in decimal_num: 
+        if number == '1':  
+            decimal += 2**power  # add the number to decimal
+            #print(f'The sum decimal is {decimal} afer power used: {power}')
+            power += 1 #increase power by 1    
+            
+    return decimal
+
+new_number = convert_binary_to_decimal()
+
+print(f"Here is the converted number: {new_number}")
